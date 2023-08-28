@@ -15,17 +15,18 @@ sort_files() {
         if [ -f "$item" ]; then
             ((file_count++))
             extension="${item##*.}"
+            #echo "$item"
             if [[ " ${documents_extension[*]} " == *" $extension "* ]]; then
-                cp $item $HOME/Documents/Downloads
+                mv "$item" $HOME/Documents/Downloads
                 ((file_moved++))
             elif [[ " ${pictures_extension[*]} " == *" $extension "* ]]; then
-                cp $item $HOME/Pictures/Downloads
+                mv "$item" $HOME/Pictures/Downloads
                 ((file_moved++))
             elif [[ " ${video_extension[*]} " == *" $extension "* ]]; then
-                cp $item $HOME/Videos/Downloads
+                mv "$item" $HOME/Videos/Downloads
                 ((file_moved++))
             elif [[ " ${music_extension[*]} " == *" $extension "* ]]; then
-                cp $item $HOME/Music/Downloads
+                mv "$item" $HOME/Music/Downloads
                 ((file_moved++))
             fi
         elif [ -d "$item" ]; then
